@@ -1,20 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0l4m6n7o8p"]
+[gd_scene format=3 uid="uid://d0l4m6n7o8p"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
-[ext_resource type="PackedScene" uid="uid://b8j2x4g5y6z" path="res://scenes/player.tscn" id="2_player"]
-[ext_resource type="PackedScene" uid="uid://c9k3y5h6z7a" path="res://scenes/enemy.tscn" id="3_enemy"]
-[ext_resource type="PackedScene" uid="uid://f2g3h4i5j6k" path="res://scenes/ui.tscn" id="4_ui"]
+[ext_resource type="Script" uid="uid://besnr564ew8j6" path="res://scenes/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://b8j2x4g5y60" path="res://entities/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://dak3y5h607a" path="res://entities/enemy/enemy.tscn" id="3_enemy"]
+[ext_resource type="PackedScene" uid="uid://f2g3h4i5j6k" path="res://ui/ui.tscn" id="4_ui"]
+[ext_resource type="Texture2D" uid="uid://bx6mexiu1w60n" path="res://assets/grass.png" id="5_grass"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=977612136]
 script = ExtResource("1_main")
 enemy_scene = ExtResource("3_enemy")
 
-[node name="UI" parent="." instance=ExtResource("4_ui")]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1029384756]
+scroll_ignore_camera_zoom = true
 
-[node name="Player" parent="." instance=ExtResource("2_player")]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=564738291]
+motion_mirroring = Vector2(256, 256)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=192837465]
+texture = ExtResource("5_grass")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2560, 2560)
+
+[node name="UI" parent="." unique_id=779690335 instance=ExtResource("4_ui")]
+
+[node name="Player" parent="." unique_id=449926721 instance=ExtResource("2_player")]
 position = Vector2(576, 324)
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1096627453]
 wait_time = 0.5
 autostart = true
 

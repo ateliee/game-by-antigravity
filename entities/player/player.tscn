@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://d0b057bw76528"]
+[gd_scene format=3 uid="uid://b8j2x4g5y60"]
 
-[ext_resource type="Script" uid="uid://c82phjmmue6pj" path="res://entities/player/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://c82phjmmue6pj" path="res://entities/player/player.gd" id="1_player"]
 [ext_resource type="Texture2D" uid="uid://dp8kih8f2q7sg" path="res://assets/player.png" id="2_sprite"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
@@ -163,7 +163,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1066452519]
-script = ExtResource("1_g2els")
+script = ExtResource("1_player")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=673877139]
 scale = Vector2(0.5, 0.5)
@@ -209,3 +209,6 @@ libraries/ = SubResource("AnimationLibrary_1")
 
 [connection signal="body_entered" from="WeaponPivot/Sword" to="." method="_on_sword_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=748293740]
+position_smoothing_enabled = true
