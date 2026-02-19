@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dak3y5h607a"]
 
 [ext_resource type="Script" uid="uid://cj1xa1ofbw6hu" path="res://scripts/enemy.gd" id="1_enemy"]
-[ext_resource type="Texture2D" uid="uid://k2amrw5dhli1" path="res://assets/enemy.png" id="2_sprite"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7p1mj"]
+load_path = "res://.godot/imported/enemy.png-63f114c7bb3f2105c232c34f647cbc2d.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(30, 30)
@@ -14,7 +16,7 @@ script = ExtResource("1_enemy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1294870933]
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_sprite")
+texture = SubResource("CompressedTexture2D_7p1mj")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1210877397]

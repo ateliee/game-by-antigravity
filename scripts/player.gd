@@ -46,5 +46,7 @@ func _on_attack_timer_timeout():
 	animation_player.play("swing")
 
 func _on_sword_body_entered(body):
+	if body == self:
+		return
 	if body.has_method("take_damage"):
 		body.take_damage(1)
