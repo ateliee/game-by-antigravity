@@ -2,16 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c82phjmmue6pj" path="res://entities/player/player.gd" id="1_player"]
 [ext_resource type="Texture2D" uid="uid://dp8kih8f2q7sg" path="res://assets/player.png" id="2_sprite"]
+[ext_resource type="Script" uid="uid://ch6o46lrhtyfc" path="res://entities/player/attack_visual.gd" id="3_visual"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(40, 40)
-
-[sub_resource type="GDScript" id="GDScript_visual"]
-script/source = "extends Node2D
-
-func _draw():
-	draw_circle(Vector2.ZERO, 60, Color(1, 1, 0, 0.3))
-"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_attack"]
 radius = 60.0
@@ -57,14 +51,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("WeaponPivot/Sword/Particles:emitting")
+tracks/3/path = NodePath("WeaponPivot/Sword:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_idle"]
@@ -127,14 +121,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("WeaponPivot/Sword/Particles:emitting")
+tracks/3/path = NodePath("WeaponPivot/Sword:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [-3.14159, 3.14159]
 }
 
 [sub_resource type="Animation" id="Animation_walk"]
@@ -182,22 +176,10 @@ shape = SubResource("RectangleShape2D_1")
 
 [node name="Visual" type="Node2D" parent="WeaponPivot/Sword" unique_id=1868105312]
 visible = false
-script = SubResource("GDScript_visual")
-
-[node name="Particles" type="CPUParticles2D" parent="WeaponPivot/Sword" unique_id=1108944755]
-emitting = false
-amount = 32
-one_shot = true
-explosiveness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 150.0
-scale_amount_min = 2.0
-scale_amount_max = 5.0
-color = Color(1, 1, 0, 1)
+script = ExtResource("3_visual")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponPivot/Sword" unique_id=179109770]
+position = Vector2(20, 0)
 shape = SubResource("CircleShape2D_attack")
 disabled = true
 
@@ -207,8 +189,8 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1500882734]
 libraries/ = SubResource("AnimationLibrary_1")
 
-[connection signal="body_entered" from="WeaponPivot/Sword" to="." method="_on_sword_body_entered"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=748293740]
 position_smoothing_enabled = true
+
+[connection signal="body_entered" from="WeaponPivot/Sword" to="." method="_on_sword_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

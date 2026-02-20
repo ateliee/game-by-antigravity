@@ -10,7 +10,7 @@ signal exp_changed(current_exp, max_exp)
 signal level_up(new_level)
 
 ## プレイヤーの移動速度
-@export var speed = 300.0
+@export var speed = 200.0
 ## プレイヤーの最大HP
 @export var max_hp = 100
 ## プレイヤーの現在のHP

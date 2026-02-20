@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 ## 敵の移動速度
-@export var speed = 100.0
+@export var speed = 50.0
 ## 敵のHP
 @export var hp = 1
 ## プレイヤーへの参照
