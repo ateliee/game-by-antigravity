@@ -17,6 +17,7 @@ scroll_ignore_camera_zoom = true
 motion_mirroring = Vector2(256, 256)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=192837465]
+texture_repeat = 2
 texture = ExtResource("5_grass")
 centered = false
 region_enabled = true
