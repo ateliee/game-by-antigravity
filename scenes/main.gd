@@ -14,6 +14,14 @@ func _ready():
 	player.died.connect(_on_player_died)
 	player.exp_changed.connect(ui.update_exp)
 	player.level_up.connect(ui.update_level)
+	player.level_up.connect(_on_player_level_up)
+	player.skills_changed.connect(ui.update_skill_icons)
+	
+	# 初期状態のスキルをUIに反映（Playerの_readyが先に呼ばれるため）
+	ui.update_skill_icons(player.active_skills)
+	
+	# UIからアップグレードが選択されたらプレイヤーに伝える
+	ui.upgrade_selected.connect(player.apply_upgrade)
 	
 	# UIの初期化を行う
 	ui.update_hp(player.hp, player.max_hp)
@@ -24,6 +32,10 @@ func _ready():
 func _on_player_died():
 	# ゲームオーバー画面を表示する
 	ui.show_game_over()
+
+## プレイヤーがレベルアップした際に呼ばれるイベント処理
+func _on_player_level_up(_new_level: int):
+	ui.show_level_up_screen(player.active_skills)
 
 ## 敵スポーン用タイマーのタイムアウト時に呼ばれる処理
 func _on_spawn_timer_timeout():

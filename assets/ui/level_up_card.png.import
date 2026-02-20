@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx6mexiu1w60n"
-path="res://.godot/imported/grass.png-a207bda4a53e32c7645a41ec6d1c234e.ctex"
+uid="uid://c2si5ql588ds6"
+path="res://.godot/imported/level_up_card.png-10ac951297f4275025da4378b980c4ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/grass.png"
-dest_files=["res://.godot/imported/grass.png-a207bda4a53e32c7645a41ec6d1c234e.ctex"]
+source_file="res://assets/ui/level_up_card.png"
+dest_files=["res://.godot/imported/level_up_card.png-10ac951297f4275025da4378b980c4ca.ctex"]
 
 [params]
 
