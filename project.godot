@@ -18,3 +18,11 @@ config/name="2D Survival"
 run/main_scene="uid://d0l4m6n7o8p"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+

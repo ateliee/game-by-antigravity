@@ -1,5 +1,7 @@
 # 2D Survival Game
 
+Play the web demo here: [Demo](https://ateliee.github.io/game-by-antigravity/)
+
 This is a simple 2D survival game made with Godot Engine 4.
 
 ## How to Run Locally
