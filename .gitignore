@@ -17,3 +17,6 @@ mono_crash.*.json
 # System specific
 .DS_Store
 Thumbs.db
+
+# jujutsu
+.jj/
